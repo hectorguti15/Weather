@@ -113,10 +113,11 @@ fetch("capital.json")
                   fetch(
                     `http://openweathermap.org/img/wn/${dataIcon}@2x.png`
                   ).then(function (data) {
+                    
                     let divImg = document.querySelector(".img-information");
                     divImg.innerHTML = `<img
                     class="upper-info-item img-information-item"
-                    src="${data.url}"
+                    src="${data.url.replace('http','https')}"
                     alt=""
                     />`;
                   });
