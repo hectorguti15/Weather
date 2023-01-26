@@ -104,10 +104,8 @@ fetch("capital.json")
                   weather_information.innerHTML = `<h2>${descriptionData.toUpperCase()}</h2>`;
                   temperature.innerHTML = `<h2>${temperatureData}°</h2>`;
 
-                  fetch(`http://openweathermap.org/img/wn/${dataIcon}@2x.png`, {
-                    // ...
-                    referrerPolicy: "unsafe_url",
-                  }).then(function (data) {
+                  fetch(`http://openweathermap.org/img/wn/${dataIcon}@2x.png`)
+                  .then(function (data) {
                     let divImg = document.querySelector(".img-information");
                     divImg.innerHTML = `<img
                     class="upper-info-item img-information-item"
