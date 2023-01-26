@@ -87,7 +87,6 @@ fetch("capital.json")
                 .then((resp) => resp.json())
                 .then(function (data) {
                   let dataIcon = data.weather[0].icon;
-                  console.log(data);
                   let feelsLike = document.querySelector(".feelslikeData");
                   let humidityData = document.querySelector(".humidityData");
                   let weather_information = document.querySelector(
@@ -108,8 +107,7 @@ fetch("capital.json")
                   fetch(`http://openweathermap.org/img/wn/${dataIcon}@2x.png`, {
                     // ...
                     referrerPolicy: "unsafe_url",
-                  })
-                  .then(function (data) {
+                  }).then(function (data) {
                     let divImg = document.querySelector(".img-information");
                     divImg.innerHTML = `<img
                     class="upper-info-item img-information-item"
