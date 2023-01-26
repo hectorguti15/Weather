@@ -87,37 +87,33 @@ fetch("capital.json")
                 .then((resp) => resp.json())
                 .then(function (data) {
                   let dataIcon = data.weather[0].icon;
-                  console.log(data)
+                  console.log(data);
                   let feelsLike = document.querySelector(".feelslikeData");
                   let humidityData = document.querySelector(".humidityData");
-                  let weather_information = document.querySelector(".weather-information")
-                  let temperature = document.querySelector(".temperature")
-              
-                  
-                  
+                  let weather_information = document.querySelector(
+                    ".weather-information"
+                  );
+                  let temperature = document.querySelector(".temperature");
 
                   let feelsLikeTemperatureData = data.main.feels_like;
                   let humidityTemperatureData = data.main.humidity;
                   let temperatureData = data.main.temp;
                   let descriptionData = data.weather[0].description;
-                  
-  
 
                   feelsLike.innerHTML = `<h3>${feelsLikeTemperatureData}°</h3>`;
                   humidityData.innerHTML = `<h3>${humidityTemperatureData}</h3>`;
-                  weather_information.innerHTML= `<h2>${descriptionData.toUpperCase()}</h2>`;
+                  weather_information.innerHTML = `<h2>${descriptionData.toUpperCase()}</h2>`;
                   temperature.innerHTML = `<h2>${temperatureData}°</h2>`;
 
-
-
-                  fetch(
-                    `http://openweathermap.org/img/wn/${dataIcon}@2x.png`
-                  ).then(function (data) {
-                    
+                  fetch(`http://openweathermap.org/img/wn/${dataIcon}@2x.png`, {
+                    // ...
+                    referrerPolicy: "unsafe_url",
+                  })
+                  .then(function (data) {
                     let divImg = document.querySelector(".img-information");
                     divImg.innerHTML = `<img
                     class="upper-info-item img-information-item"
-                    src="${data.url.replace('http','https')}"
+                    src="${data.url.replace("http", "https")}"
                     alt=""
                     />`;
                   });
