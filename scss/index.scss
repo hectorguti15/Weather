@@ -1,0 +1,744 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:ital,wght@1,200&family=Roboto:wght@300&family=Work+Sans:wght@200&display=swap");
+
+:root {
+  --primary-color: #bb86fc;
+  --primary-variant: #7300b3;
+  --secondary-variant: #03dac6;
+
+  --background-dark: #121212;
+  --background-light: #ffffff;
+
+  --font-family1: "Montserrat", sans-serif;
+  --font-family2: "Poppins", sans-serif;
+  --font-family3: "Roboto", sans-serif;
+  --font-family4: "Work Sans", sans-serif;
+
+  --error: #cf6679;
+}
+
+.loader-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 1000;
+  transition: all 0.5s;
+  background-color: rgba(243, 243, 243, 0.336);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader-item,
+.loader-item::before,
+.loader-item::after {
+  background-color: rgb(68, 68, 68);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: loader-animation 1.5s infinite ease-in-out;
+}
+.loader-item {
+  position: relative;
+  animation-delay: -0.16s;
+}
+.loader-item::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  animation-delay: -0.32s;
+}
+.loader-item::after {
+  content: "";
+  position: absolute;
+  left: 32px;
+}
+@keyframes loader-animation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.dark {
+  background-color: #121212;
+  header {
+    h1 {
+      color: var(--primary-color);
+    }
+  }
+  main {
+    div {
+      .top-bar {
+        .search {
+          input {
+            background-color: rgba(255, 255, 255, 0.165);
+            color: #eeeeee;
+          }
+          input::placeholder {
+            color: #bb86fc;
+          }
+          table {
+            background-color: #9999;
+          }
+        }
+      }
+      .information {
+        .upper-information {
+          .min-temperature {
+            color: var(--error);
+          }
+          .max-temperature {
+            color: var(--error);
+          }
+          .img-information {
+            background-color: rgba(184, 80, 80, 0.612);
+          }
+        }
+        .lower-information {
+          .weather-information {
+            border-bottom: 1px solid blanchedalmond;
+          }
+          .temperature {
+            border-bottom: 1px solid blanchedalmond;
+          }
+        }
+      }
+    }
+  }
+  footer {
+    .footer-container {
+      .footer-section {
+        h4 {
+          color: #eeeeee;
+        }
+        .linkedin {
+          color: aliceblue;
+        }
+      }
+      h5 {
+        color: #eeeeee;
+      }
+    }
+  }
+}
+.light {
+  background-color: #dddd;
+  header {
+    h1 {
+      color: var(--primary-variant);
+    }
+  }
+  main {
+    div {
+      .top-bar {
+        .search {
+          input {
+            background-color: rgba(10, 10, 10, 0.836);
+            color: #eeeeee;
+          }
+          input::placeholder {
+            color: rgb(223, 163, 238);
+          }
+          table {
+            background-color: rgba(39, 39, 39, 0.6);
+          }
+        }
+      }
+      .information {
+        .upper-information {
+          .min-temperature {
+            color: #db3654;
+          }
+          .max-temperature {
+            color: #db3654;
+          }
+          .img-information {
+            background-color: rgba(192, 48, 48, 0.938);
+          }
+        }
+        .lower-information {
+          .weather-information {
+            border-bottom: 1px solid rgb(56, 56, 56);
+          }
+          .temperature {
+            border-bottom: 1px solid rgb(56, 56, 56);
+          }
+        }
+      }
+    }
+  }
+  footer {
+    .footer-container {
+      .footer-section {
+        h4 {
+          color: var(--background-dark);
+        }
+        .linkedin {
+          color: rgb(24, 24, 24);
+        }
+      }
+      h5 {
+        color: var(--background-dark);
+      }
+    }
+  }
+}
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  h1 {
+    margin: 0;
+    font-family: var(--font-family1);
+  }
+  .change-mode-container {
+    position: relative;
+    border-radius: 15px;
+    background-color: var(--background-light);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "noche vacio dia";
+    align-items: center;
+    justify-items: center;
+
+    .dark-mode-item {
+      grid-area: noche;
+    }
+    .light-mode-item {
+      grid-area: dia;
+    }
+    .vacio {
+      grid-area: vacio;
+    }
+    .select-mode-dark {
+      position: absolute;
+      background-color: rgb(68, 68, 68);
+      border-radius: 50%;
+      z-index: 10;
+      left: 2px;
+      cursor: pointer;
+      transition: 1s ease-in-out;
+    }
+    .select-mode-light {
+      position: absolute;
+      right: 2px;
+      z-index: 10;
+      background-color: rgb(68, 68, 68);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 1s ease-in-out;
+    }
+  }
+}
+
+main {
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .top-bar {
+      margin: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .img-country-container {
+        align-self: start;
+        margin-right: 10px;
+        .img-country-item {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .search {
+        input {
+          border: none;
+          outline: none;
+          border-radius: 12px;
+          padding: 4px;
+          font-family: var(--font-family4);
+        }
+
+        table {
+          overflow-y: scroll;
+          border-radius: 12px;
+          margin-top: 3px;
+          thead {
+            tr {
+              display: flex;
+              justify-content: flex-start;
+              text-align: left;
+              color: var(--error);
+              font-family: var(--font-family2);
+            }
+          }
+          tbody {
+            .filter {
+              user-select: none;
+              cursor: pointer;
+              display: flex;
+              justify-content: flex-start;
+              text-align: left;
+              color: #03dac6;
+              font-family: var(--font-family2);
+            }
+            .filter:hover {
+              background-color: #12121281;
+              border-radius: 15px;
+            }
+          }
+        }
+      }
+    }
+    .information {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .section-information {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .upper-information {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .upper-info-item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          h2 {
+            font-family: var(--font-family1);
+          }
+          h3 {
+            font-family: var(--font-family3);
+            margin: 0;
+          }
+        }
+        .min-temperature {
+          padding: 12px;
+        }
+        .max-temperature {
+          padding: 12px;
+          font-family: var(--font-family1);
+        }
+        .img-information {
+          border-radius: 50%;
+          .img-information-item {
+            width: 70%;
+            height: 70%;
+            object-fit: cover;
+          }
+        }
+      }
+      .lower-information {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        .weather-information {
+          h2 {
+            margin-bottom: 0;
+          }
+          font-family: var(--font-family4);
+          padding: 10px;
+          color: var(--primary-variant);
+        }
+        .temperature {
+          h2 {
+            margin-bottom: 0;
+          }
+          font-family: var(--font-family4);
+          padding: 10px;
+          color: var(--primary-variant);
+        }
+      }
+    }
+  }
+}
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  hr {
+    width: 80%;
+    border-color: rgb(114, 114, 114);
+  }
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    .footer-section {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      h4 {
+        font-family: var(--font-family1);
+        margin-right: 20px;
+      }
+    }
+    h5 {
+      font-family: var(--font-family4);
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  header {
+    height: 100px;
+    padding: 20px;
+    h1 {
+      font-size: 48px;
+    }
+    .change-mode-container {
+      width: 65px;
+      height: 30px;
+      padding: 2px;
+      .select-mode-dark {
+        width: 30px;
+        height: 30px;
+      }
+      .select-mode-light {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+  main {
+    padding: 50px;
+    div {
+      .top-bar {
+        .img-country-container {
+          width: 70px;
+          height: 45px;
+        }
+        .search {
+          input {
+            width: 500px;
+            height: 35px;
+          }
+
+          table {
+            width: 500px;
+            max-height: 500px;
+            thead {
+              max-height: 700px;
+              tr {
+                width: 400px;
+                th {
+                  width: 200px;
+                }
+              }
+            }
+            tbody {
+              .filter {
+                width: 400px;
+                .acronym {
+                  width: 200px;
+                }
+                .name {
+                  width: 200px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .information {
+        height: 500px;
+        width: 1000px;
+        .upper-information {
+          height: 300px;
+          width: 1000px;
+          .upper-info-item {
+            h2 {
+              font-size: 22px;
+            }
+            h3 {
+              font-size: 3rem;
+            }
+          }
+          .min-temperature {
+            width: 350px;
+          }
+          .max-temperature {
+            width: 350px;
+            font-size: 1rem;
+          }
+          .img-information {
+            width: 200px;
+            height: 200px;
+          }
+        }
+        .lower-information {
+          height: 200px;
+          width: 800px;
+          .weather-information {
+            width: 370px;
+            font-size: 25px;
+          }
+          .temperature {
+            width: 370px;
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
+  footer {
+    .footer-container {
+      .footer-section {
+        height: 40px;
+        h4 {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  header {
+    height: 100px;
+    padding: 20px;
+    h1 {
+      font-size: 40px;
+    }
+    .change-mode-container {
+      width: 55px;
+      height: 30px;
+      padding: 2px;
+      .select-mode-dark {
+        width: 30px;
+        height: 30px;
+      }
+      .select-mode-light {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+  main {
+    padding: 50px;
+    div {
+      .top-bar {
+        .img-country-container {
+          width: 60px;
+          height: 45px;
+        }
+        .search {
+          input {
+            width: 400px;
+            height: 35px;
+          }
+
+          table {
+            overflow-x: hidden;
+            width: 380px;
+            max-height: 500px;
+            thead {
+              max-height: 500px;
+              tr {
+                width: 360px;
+                th {
+                  width: 180px;
+                }
+              }
+            }
+            tbody {
+              .filter {
+                width: 360px;
+                .acronym {
+                  width: 180px;
+                }
+                .name {
+                  width: 180px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .information {
+        height: 500px;
+        width: 600px;
+        .upper-information {
+          height: 300px;
+          width: 600px;
+          .upper-info-item {
+            h2 {
+              font-size: 18px;
+            }
+            h3 {
+              font-size: 2rem;
+            }
+          }
+          .min-temperature {
+            width: 200px;
+          }
+          .max-temperature {
+            width: 200px;
+            font-size: 1rem;
+          }
+          .img-information {
+            width: 170px;
+            height: 170px;
+          }
+        }
+        .lower-information {
+          height: 200px;
+          width: 600px;
+          .weather-information {
+            width: 280px;
+            height: 100px;
+            font-size: 20;
+            margin: 5px;
+          }
+          .temperature {
+            width: 280px;
+            height: 100px;
+            font-size: 20px;
+            margin: 5px;
+          }
+        }
+      }
+    }
+  }
+  footer {
+    .footer-container {
+      .footer-section {
+        height: 40px;
+        h4 {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  header {
+    height: 100px;
+    padding: 20px;
+    h1 {
+      font-size: 2rem;
+    }
+    .change-mode-container {
+      width: 55px;
+      height: 30px;
+      padding: 2px;
+      .select-mode-dark {
+        width: 30px;
+        height: 30px;
+      }
+      .select-mode-light {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+  main {
+    padding: 30px;
+    div {
+      .top-bar {
+        .img-country-container {
+          width: 40px;
+          height: 25px;
+        }
+        .search {
+          input {
+            width: 300px;
+            height: 25px;
+          }
+
+          table {
+            width: 300px;
+            max-height: 500px;
+            thead {
+              max-height: 500px;
+              tr {
+                width: 280px;
+                th {
+                  width: 190px;
+                }
+              }
+            }
+            tbody {
+              .filter {
+                width: 280px;
+                .acronym {
+                  width: 190px;
+                }
+                .name {
+                  width: 190px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .information {
+        height: 500px;
+        width: 380px;
+        .upper-information {
+          height: 300px;
+          width: 380px;
+          .upper-info-item {
+            h2 {
+              font-size: 14px;
+            }
+            h3 {
+              font-size: 1rem;
+            }
+          }
+          .min-temperature {
+            width: 90px;
+          }
+          .max-temperature {
+            width: 90px;
+            font-size: 1rem;
+          }
+          .img-information {
+            width: 100px;
+            height: 100px;
+          }
+        }
+        .lower-information {
+          height: 200px;
+          width: 380px;
+          .weather-information {
+            width: 170px;
+            height: 100px;
+            font-size: 10px;
+            margin: 5px;
+          }
+          .temperature {
+            width: 170px;
+            height: 100px;
+            font-size: 12px;
+            margin: 5px;
+          }
+        }
+      }
+    }
+  }
+  footer {
+    .footer-container {
+      .footer-section {
+        height: 40px;
+        h4 {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

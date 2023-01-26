@@ -1,0 +1,650 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:ital,wght@1,200&family=Roboto:wght@300&family=Work+Sans:wght@200&display=swap");
+:root {
+  --primary-color: #bb86fc;
+  --primary-variant: #7300b3;
+  --secondary-variant: #03dac6;
+  --background-dark: #121212;
+  --background-light: #ffffff;
+  --font-family1: "Montserrat", sans-serif;
+  --font-family2: "Poppins", sans-serif;
+  --font-family3: "Roboto", sans-serif;
+  --font-family4: "Work Sans", sans-serif;
+  --error: #cf6679;
+}
+
+.loader-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 1000;
+  transition: all 0.5s;
+  background-color: rgba(243, 243, 243, 0.336);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-item,
+.loader-item::before,
+.loader-item::after {
+  background-color: rgb(68, 68, 68);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: loader-animation 1.5s infinite ease-in-out;
+}
+
+.loader-item {
+  position: relative;
+  animation-delay: -0.16s;
+}
+
+.loader-item::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  animation-delay: -0.32s;
+}
+
+.loader-item::after {
+  content: "";
+  position: absolute;
+  left: 32px;
+}
+
+@keyframes loader-animation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.dark {
+  background-color: #121212;
+}
+.dark header h1 {
+  color: var(--primary-color);
+}
+.dark main div .top-bar .search input {
+  background-color: rgba(255, 255, 255, 0.165);
+  color: #eeeeee;
+}
+.dark main div .top-bar .search input::placeholder {
+  color: #bb86fc;
+}
+.dark main div .top-bar .search table {
+  background-color: rgba(153, 153, 153, 0.6);
+}
+.dark main div .information .upper-information .min-temperature {
+  color: var(--error);
+}
+.dark main div .information .upper-information .max-temperature {
+  color: var(--error);
+}
+.dark main div .information .upper-information .img-information {
+  background-color: rgba(184, 80, 80, 0.612);
+}
+.dark main div .information .lower-information .weather-information {
+  border-bottom: 1px solid blanchedalmond;
+}
+.dark main div .information .lower-information .temperature {
+  border-bottom: 1px solid blanchedalmond;
+}
+.dark footer .footer-container .footer-section h4 {
+  color: #eeeeee;
+}
+.dark footer .footer-container .footer-section .linkedin {
+  color: aliceblue;
+}
+.dark footer .footer-container h5 {
+  color: #eeeeee;
+}
+
+.light {
+  background-color: rgba(221, 221, 221, 0.8666666667);
+}
+.light header h1 {
+  color: var(--primary-variant);
+}
+.light main div .top-bar .search input {
+  background-color: rgba(10, 10, 10, 0.836);
+  color: #eeeeee;
+}
+.light main div .top-bar .search input::placeholder {
+  color: rgb(223, 163, 238);
+}
+.light main div .top-bar .search table {
+  background-color: rgba(39, 39, 39, 0.6);
+}
+.light main div .information .upper-information .min-temperature {
+  color: #db3654;
+}
+.light main div .information .upper-information .max-temperature {
+  color: #db3654;
+}
+.light main div .information .upper-information .img-information {
+  background-color: rgba(192, 48, 48, 0.938);
+}
+.light main div .information .lower-information .weather-information {
+  border-bottom: 1px solid rgb(56, 56, 56);
+}
+.light main div .information .lower-information .temperature {
+  border-bottom: 1px solid rgb(56, 56, 56);
+}
+.light footer .footer-container .footer-section h4 {
+  color: var(--background-dark);
+}
+.light footer .footer-container .footer-section .linkedin {
+  color: rgb(24, 24, 24);
+}
+.light footer .footer-container h5 {
+  color: var(--background-dark);
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+header h1 {
+  margin: 0;
+  font-family: var(--font-family1);
+}
+header .change-mode-container {
+  position: relative;
+  border-radius: 15px;
+  background-color: var(--background-light);
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "noche vacio dia";
+  align-items: center;
+  justify-items: center;
+}
+header .change-mode-container .dark-mode-item {
+  grid-area: noche;
+}
+header .change-mode-container .light-mode-item {
+  grid-area: dia;
+}
+header .change-mode-container .vacio {
+  grid-area: vacio;
+}
+header .change-mode-container .select-mode-dark {
+  position: absolute;
+  background-color: rgb(68, 68, 68);
+  border-radius: 50%;
+  z-index: 10;
+  left: 2px;
+  cursor: pointer;
+  transition: 1s ease-in-out;
+}
+header .change-mode-container .select-mode-light {
+  position: absolute;
+  right: 2px;
+  z-index: 10;
+  background-color: rgb(68, 68, 68);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 1s ease-in-out;
+}
+
+main div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main div .top-bar {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+main div .top-bar .img-country-container {
+  align-self: start;
+  margin-right: 10px;
+}
+main div .top-bar .img-country-container .img-country-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+main div .top-bar .search input {
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  padding: 4px;
+  font-family: var(--font-family4);
+}
+main div .top-bar .search table {
+  overflow-y: scroll;
+  border-radius: 12px;
+  margin-top: 3px;
+}
+main div .top-bar .search table thead tr {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  color: var(--error);
+  font-family: var(--font-family2);
+}
+main div .top-bar .search table tbody .filter {
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  color: #03dac6;
+  font-family: var(--font-family2);
+}
+main div .top-bar .search table tbody .filter:hover {
+  background-color: rgba(18, 18, 18, 0.5058823529);
+  border-radius: 15px;
+}
+main div .information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main div .information .section-information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+main div .information .upper-information {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+main div .information .upper-information .upper-info-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main div .information .upper-information .upper-info-item h2 {
+  font-family: var(--font-family1);
+}
+main div .information .upper-information .upper-info-item h3 {
+  font-family: var(--font-family3);
+  margin: 0;
+}
+main div .information .upper-information .min-temperature {
+  padding: 12px;
+}
+main div .information .upper-information .max-temperature {
+  padding: 12px;
+  font-family: var(--font-family1);
+}
+main div .information .upper-information .img-information {
+  border-radius: 50%;
+}
+main div .information .upper-information .img-information .img-information-item {
+  width: 70%;
+  height: 70%;
+  object-fit: cover;
+}
+main div .information .lower-information {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+main div .information .lower-information .weather-information {
+  font-family: var(--font-family4);
+  padding: 10px;
+  color: var(--primary-variant);
+}
+main div .information .lower-information .weather-information h2 {
+  margin-bottom: 0;
+}
+main div .information .lower-information .temperature {
+  font-family: var(--font-family4);
+  padding: 10px;
+  color: var(--primary-variant);
+}
+main div .information .lower-information .temperature h2 {
+  margin-bottom: 0;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer hr {
+  width: 80%;
+  border-color: rgb(114, 114, 114);
+}
+footer .footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+footer .footer-container .footer-section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+footer .footer-container .footer-section h4 {
+  font-family: var(--font-family1);
+  margin-right: 20px;
+}
+footer .footer-container h5 {
+  font-family: var(--font-family4);
+}
+
+@media screen and (min-width: 1024px) {
+  header {
+    height: 100px;
+    padding: 20px;
+  }
+  header h1 {
+    font-size: 48px;
+  }
+  header .change-mode-container {
+    width: 65px;
+    height: 30px;
+    padding: 2px;
+  }
+  header .change-mode-container .select-mode-dark {
+    width: 30px;
+    height: 30px;
+  }
+  header .change-mode-container .select-mode-light {
+    width: 30px;
+    height: 30px;
+  }
+  main {
+    padding: 50px;
+  }
+  main div .top-bar .img-country-container {
+    width: 70px;
+    height: 45px;
+  }
+  main div .top-bar .search input {
+    width: 500px;
+    height: 35px;
+  }
+  main div .top-bar .search table {
+    width: 500px;
+    max-height: 500px;
+  }
+  main div .top-bar .search table thead {
+    max-height: 700px;
+  }
+  main div .top-bar .search table thead tr {
+    width: 400px;
+  }
+  main div .top-bar .search table thead tr th {
+    width: 200px;
+  }
+  main div .top-bar .search table tbody .filter {
+    width: 400px;
+  }
+  main div .top-bar .search table tbody .filter .acronym {
+    width: 200px;
+  }
+  main div .top-bar .search table tbody .filter .name {
+    width: 200px;
+  }
+  main div .information {
+    height: 500px;
+    width: 1000px;
+  }
+  main div .information .upper-information {
+    height: 300px;
+    width: 1000px;
+  }
+  main div .information .upper-information .upper-info-item h2 {
+    font-size: 22px;
+  }
+  main div .information .upper-information .upper-info-item h3 {
+    font-size: 3rem;
+  }
+  main div .information .upper-information .min-temperature {
+    width: 350px;
+  }
+  main div .information .upper-information .max-temperature {
+    width: 350px;
+    font-size: 1rem;
+  }
+  main div .information .upper-information .img-information {
+    width: 200px;
+    height: 200px;
+  }
+  main div .information .lower-information {
+    height: 200px;
+    width: 800px;
+  }
+  main div .information .lower-information .weather-information {
+    width: 370px;
+    font-size: 25px;
+  }
+  main div .information .lower-information .temperature {
+    width: 370px;
+    font-size: 25px;
+  }
+  footer .footer-container .footer-section {
+    height: 40px;
+  }
+  footer .footer-container .footer-section h4 {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  header {
+    height: 100px;
+    padding: 20px;
+  }
+  header h1 {
+    font-size: 40px;
+  }
+  header .change-mode-container {
+    width: 55px;
+    height: 30px;
+    padding: 2px;
+  }
+  header .change-mode-container .select-mode-dark {
+    width: 30px;
+    height: 30px;
+  }
+  header .change-mode-container .select-mode-light {
+    width: 30px;
+    height: 30px;
+  }
+  main {
+    padding: 50px;
+  }
+  main div .top-bar .img-country-container {
+    width: 60px;
+    height: 45px;
+  }
+  main div .top-bar .search input {
+    width: 400px;
+    height: 35px;
+  }
+  main div .top-bar .search table {
+    overflow-x: hidden;
+    width: 380px;
+    max-height: 500px;
+  }
+  main div .top-bar .search table thead {
+    max-height: 500px;
+  }
+  main div .top-bar .search table thead tr {
+    width: 360px;
+  }
+  main div .top-bar .search table thead tr th {
+    width: 180px;
+  }
+  main div .top-bar .search table tbody .filter {
+    width: 360px;
+  }
+  main div .top-bar .search table tbody .filter .acronym {
+    width: 180px;
+  }
+  main div .top-bar .search table tbody .filter .name {
+    width: 180px;
+  }
+  main div .information {
+    height: 500px;
+    width: 600px;
+  }
+  main div .information .upper-information {
+    height: 300px;
+    width: 600px;
+  }
+  main div .information .upper-information .upper-info-item h2 {
+    font-size: 18px;
+  }
+  main div .information .upper-information .upper-info-item h3 {
+    font-size: 2rem;
+  }
+  main div .information .upper-information .min-temperature {
+    width: 200px;
+  }
+  main div .information .upper-information .max-temperature {
+    width: 200px;
+    font-size: 1rem;
+  }
+  main div .information .upper-information .img-information {
+    width: 170px;
+    height: 170px;
+  }
+  main div .information .lower-information {
+    height: 200px;
+    width: 600px;
+  }
+  main div .information .lower-information .weather-information {
+    width: 280px;
+    height: 100px;
+    font-size: 20;
+    margin: 5px;
+  }
+  main div .information .lower-information .temperature {
+    width: 280px;
+    height: 100px;
+    font-size: 20px;
+    margin: 5px;
+  }
+  footer .footer-container .footer-section {
+    height: 40px;
+  }
+  footer .footer-container .footer-section h4 {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  header {
+    height: 100px;
+    padding: 20px;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+  header .change-mode-container {
+    width: 55px;
+    height: 30px;
+    padding: 2px;
+  }
+  header .change-mode-container .select-mode-dark {
+    width: 30px;
+    height: 30px;
+  }
+  header .change-mode-container .select-mode-light {
+    width: 30px;
+    height: 30px;
+  }
+  main {
+    padding: 30px;
+  }
+  main div .top-bar .img-country-container {
+    width: 40px;
+    height: 25px;
+  }
+  main div .top-bar .search input {
+    width: 300px;
+    height: 25px;
+  }
+  main div .top-bar .search table {
+    width: 300px;
+    max-height: 500px;
+  }
+  main div .top-bar .search table thead {
+    max-height: 500px;
+  }
+  main div .top-bar .search table thead tr {
+    width: 280px;
+  }
+  main div .top-bar .search table thead tr th {
+    width: 190px;
+  }
+  main div .top-bar .search table tbody .filter {
+    width: 280px;
+  }
+  main div .top-bar .search table tbody .filter .acronym {
+    width: 190px;
+  }
+  main div .top-bar .search table tbody .filter .name {
+    width: 190px;
+  }
+  main div .information {
+    height: 500px;
+    width: 380px;
+  }
+  main div .information .upper-information {
+    height: 300px;
+    width: 380px;
+  }
+  main div .information .upper-information .upper-info-item h2 {
+    font-size: 14px;
+  }
+  main div .information .upper-information .upper-info-item h3 {
+    font-size: 1rem;
+  }
+  main div .information .upper-information .min-temperature {
+    width: 90px;
+  }
+  main div .information .upper-information .max-temperature {
+    width: 90px;
+    font-size: 1rem;
+  }
+  main div .information .upper-information .img-information {
+    width: 100px;
+    height: 100px;
+  }
+  main div .information .lower-information {
+    height: 200px;
+    width: 380px;
+  }
+  main div .information .lower-information .weather-information {
+    width: 170px;
+    height: 100px;
+    font-size: 10px;
+    margin: 5px;
+  }
+  main div .information .lower-information .temperature {
+    width: 170px;
+    height: 100px;
+    font-size: 12px;
+    margin: 5px;
+  }
+  footer .footer-container .footer-section {
+    height: 40px;
+  }
+  footer .footer-container .footer-section h4 {
+    font-size: 1rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
